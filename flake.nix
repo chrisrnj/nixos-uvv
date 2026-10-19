@@ -16,9 +16,14 @@
           networking.hostName = "nixos";
         })
 
-        ./users.nix
+        ./audio.nix
         ./configuration.nix
+        ./desktop.nix
+        ./hardware-configuration.nix
         ./networking.nix
+        ./programs.nix
+        ./ssh.nix
+        ./users.nix
       ];
     };
   };
