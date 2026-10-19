@@ -18,6 +18,9 @@
   services.desktopManager.plasma6.enable = true;
   xdg.portal.config.common.default = [ "kde" "gtk" ];
 
+  # Remover aplicações desnecessárias do KDE.
+  programs.kde-pim.enable = false;
+
   # Enable automatic login for the user.
   services.displayManager.autoLogin = {
     enable = true;
