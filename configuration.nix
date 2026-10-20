@@ -47,6 +47,18 @@
     initrd.checkJournalingFS = false; # Recommended for VirtualBox guest
   };
 
+  fileSystems = {
+    "/".options = [ "compress=zstd" "noatime" ];
+    "/home".options = [ "compress=zstd" "noatime" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [ "/" ];
+    interval = "monthly";
+  };
+
   # Zram
   zramSwap.enable = true;
 
