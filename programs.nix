@@ -51,7 +51,7 @@
     shellAliases = {
       la = "ls -lAh";
       edit = "sudo -e";
-      update = "sudo nixos-rebuild switch --recreate-lock-file";
+      update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#nixos";
     };
 
     ohMyZsh = {
