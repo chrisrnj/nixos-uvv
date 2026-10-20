@@ -7,8 +7,24 @@
 {
   boot = {
     loader = {
-      # Limine bootloader
-      limine.enable = true;
+      grub = {
+        enable = true;
+        device = "nodev"; # "nodev" is used for UEFI
+        efiSupport = true;
+        extraEntries =
+          let
+            bootUuid = builtins.replaceStrings
+              [ "/dev/disk/by-uuid/" ]
+              [ "" ]
+              config.fileSystems."/boot".device;
+          in
+          ''
+            menuentry "Omarchy (Limine)" {
+              search --no-floppy --fs-uuid --set=esp ${bootUuid}
+              chainloader ($esp)/EFI/limine/limine_x64.efi
+            }
+          '';
+      };
       efi.canTouchEfiVariables = true;
     };
 
