@@ -26,8 +26,6 @@
         "2606:4700:4700::1001#cloudflare-dns.com"
       ];
       Domains = [ "~." ];
-      DNSSEC = true;
-      DNSOverTLS = true;
       Cache = true;
       LLMNR = false;
       MulticastDNS = false;
