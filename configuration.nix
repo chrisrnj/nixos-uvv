@@ -28,15 +28,11 @@
       efi.canTouchEfiVariables = true;
     };
 
-    # Clean Quiet Boot
+    # Enable "Silent boot"
     plymouth.enable = true;
     consoleLogLevel = 3;
-    initrd.verbose = false;
-
     kernelParams = [
-      # Plymouth
       "quiet"
-      "splash"
       "rd.udev.log_level=3"
       "rd.systemd.show_status=auto"
     ];
