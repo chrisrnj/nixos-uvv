@@ -6,6 +6,10 @@
 
 {
   boot = {
+    # Kernel
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    # Bootloader
     loader = {
       grub = {
         enable = true;
