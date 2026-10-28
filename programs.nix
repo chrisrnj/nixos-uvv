@@ -52,6 +52,7 @@
       la = "ls -lAh";
       edit = "sudo -e";
       update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#nixos";
+      reset-config = "cd /etc && sudo rm -rf nixos && sudo git clone https://github.com/chrisrnj/nixos-uvv nixos && sudo nixos-rebuild switch --flake /etc/nixos#nixos";
     };
 
     ohMyZsh = {
